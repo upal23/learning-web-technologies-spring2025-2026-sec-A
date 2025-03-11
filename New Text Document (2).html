@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIUB Contact Form</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AIUB Contact Us</h1>
+
+    <form action="/submit_form" method="post">
+        <table>
+            <tr>
+                <td><label for="name" id="label-name">Full Name:</label></td>
+                <td><input type="text" id="name" name="name" placeholder="Enter your full name" required maxlength="100" pattern="[A-Za-z\s]+" title="Name can only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="email" id="label-email">Email Address:</label></td>
+                <td><input type="email" id="email" name="email" placeholder="you@example.com" required></td>
+            </tr>
+            <tr>
+                <td><label for="dob" id="label-dob">Date of Birth:</label></td>
+                <td><input type="date" id="dob" name="dob" required></td>
+            </tr>
+            <tr>
+                <td><label for="password" id="label-password">Password:</label></td>
+                <td><input type="password" id="password" name="password" placeholder="Enter a strong password" required minlength="8" title="Password must be at least 8 characters long."></td>
+            </tr>
+            <tr>
+                <td><label for="address" id="label-address">Address:</label></td>
+                <td><textarea id="address" name="address" rows="4" cols="50" placeholder="Enter your address" required></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="gender" id="label-gender">Gender:</label></td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other" required>
+                    <label for="other">Other</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="department" id="label-department">Department:</label></td>
+                <td>
+                    <select id="department" name="department" required>
+                        <option value="">Select Department</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="se">Software Engineering</option>
+                        <option value="eee">Electrical and Electronic Engineering</option>
+                        <option value="bba">Business Administration</option>
+                        <option value="llb">Law</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="newsletter" id="label-newsletter">Subscribe to AIUB newsletter:</label></td>
+                <td><input type="checkbox" id="newsletter" name="newsletter" value="yes"> Yes, I want to subscribe.</td>
+            </tr>
+        </table>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
