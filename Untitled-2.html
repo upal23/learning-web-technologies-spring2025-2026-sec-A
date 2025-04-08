@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div id="formContainer"></div>
+
+<script>
+  // Create form elements
+  const form = document.createElement('form');
+  form.className = 'contact-form';
+  form.id = 'contactForm';
+
+  const heading = document.createElement('h2');
+  heading.textContent = 'Contact Us';
+
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  nameInput.placeholder = 'Your Name';
+  nameInput.id = 'name';
+
+  const emailInput = document.createElement('input');
+  emailInput.type = 'email';
+  emailInput.placeholder = 'Your Email';
+  emailInput.id = 'email';
+
+  const messageInput = document.createElement('textarea');
+  messageInput.placeholder = 'Your Message';
+  messageInput.rows = 5;
+  messageInput.id = 'message';
+
+  const submitBtn = document.createElement('button');
+  submitBtn.type = 'submit';
+  submitBtn.textContent = 'Send Message';
+
+  // Add elements to the form
+  form.appendChild(heading);
+  form.appendChild(nameInput);
+  form.appendChild(emailInput);
+  form.appendChild(messageInput);
+  form.appendChild(submitBtn);
+
+  // Add form to container
+  document.getElementById('formContainer').appendChild(form);
+
+  // Handle form submission
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    alert(`Thanks for contacting us, ${name}! We'll get back to you soon.`);
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
